@@ -13,9 +13,3 @@ min_version = "0.48"
 [author]
   name = "Roman Almeida"
   homepage = "www.dojomadness.com"
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
