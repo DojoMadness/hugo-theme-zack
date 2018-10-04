@@ -1,0 +1,26 @@
+{{ define "main" }}
+  <div id='main' aria-role="main" class="row index feed">
+    <div class="col-md-5">
+      <h1>{{.Title}}</h1>
+      <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
+      {{.Content}}
+
+      <button id="open-popup" class="btn btn-lg btn-primary btn-signup">
+        Download Zack
+          <svg xmlns="http://www.w3.org/2000/svg" width="29" height="21" viewBox="0 0 29 21">
+            <path fill="#FFF" fill-rule="nonzero" d="M22.522 11.889H2.292a1.556 1.556 0 0 1 0-3.111h20.23L16.05 3.227A1.556 1.556 0 0 1 18.075.866l9.662 8.287c.724.62.724 1.74 0 2.361l-9.662 8.287a1.556 1.556 0 0 1-2.025-2.361l6.472-5.551z"/>
+          </svg>
+      </button>
+
+      {{- partial "logos.html" . -}}
+    </div>
+    <div class="col-md-7">
+      {{- partial "slider.html" (.Page.Resources) -}}
+    </div>
+  </div>
+{{ end }}
+
+{{ define "footer" }}
+  {{- partial "footer.html" . -}}
+  {{- partial "mailchimp.html" . -}}
+{{ end }}

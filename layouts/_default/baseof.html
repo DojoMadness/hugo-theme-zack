@@ -1,0 +1,14 @@
+<html>
+  {{- partial "head.html" . -}}
+  <body>
+    <div class="container-fluid">
+      {{- partial "header.html" . -}}
+      <div id="content">
+      {{ block "main" . }}{{ end }}
+      </div>
+      {{ block "footer" . }}
+        {{- partial "footer.html" . -}}
+      {{ end }}
+     </div>
+  </body>
+</html>

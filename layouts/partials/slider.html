@@ -1,0 +1,17 @@
+{{ with . }}
+<div class="carousel carousel-fade" data-ride="carousel">
+  <div class="carousel-inner">
+    {{ range $index, $image:= . }}
+      <div class='carousel-item {{ if eq $index 0 }} active {{ end }}'>
+        {{- $image1x := .Resize "1152x" }}
+        {{- $image2x := .Resize "2304x" }}
+        <img class="d-block"
+          src='{{ $image1x.RelPermalink }}'
+          srcset='{{ $image2x.RelPermalink }} 2x,
+                  {{ .RelPermalink }} 3x'
+          alt="{{ .Name }}">
+      </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
