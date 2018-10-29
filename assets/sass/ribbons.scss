@@ -1,0 +1,22 @@
+/* The ribbons */
+
+.corner-ribbon{
+  width: 150px;
+  position: absolute;
+  top: 10px;
+  left: -50px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  background-color: rgb(50,119,255);
+}
+
+.corner-ribbon.shadow{
+  box-shadow: 0 2px 5px #111;
+}
+

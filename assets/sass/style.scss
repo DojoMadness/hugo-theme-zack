@@ -34,19 +34,20 @@ p strong, small strong {
   margin-right: -30px;
 }
 
-.btn-signup {
+.btn-cta {
   position: relative;
   width: 70%;
   text-align: left;
   height: 56px;
   border-radius: 28px;
-  background-color: #007bff;
+  background-color: rgb(50,119,255);
   font-size: 18px;
   margin-top: 25px;
   margin-bottom: 90px;
+  border-radius: 8px;
 }
 
-.btn-signup svg {
+.btn-cta svg {
   position: absolute;
   right: 15px;
   top: 18px;

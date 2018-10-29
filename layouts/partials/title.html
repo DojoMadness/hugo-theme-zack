@@ -1,0 +1,7 @@
+{{ $titles := split . "<br>" }}
+{{ range $index, $element := $titles }}
+  {{ if gt $index 0 }}
+    <br>
+  {{ end }}
+  {{ $element }}
+{{ end}}
