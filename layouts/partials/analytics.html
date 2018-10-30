@@ -46,7 +46,7 @@ amplitude.getInstance().init({{ . }}, null, {
 {{ end }}
 
 {{ with .Page.Params.amplitudeEvent }}
-amplitude.getInstance().setDeviceId('09de6e03-bca7-4120-a7e2-8d8457674b97R')
+amplitude.getInstance().setDeviceId(amplitude.getInstance().options.deviceId)
 amplitude.getInstance().logEvent({{ . }})
 {{ end }}
 </script>
