@@ -19,7 +19,7 @@
   document.getElementById("cta").onclick = function() {
     // Log to amplitude if defined
     {{ with .Get "onclick" }}
-      {{ . }}()
+      window[{{ . }}]()
     {{ else }}
       ctaDefault()
     {{ end }}
