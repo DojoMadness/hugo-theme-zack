@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <div id='main' aria-role="main" class="centered justify-content-center row">
+    <div class="col-md-8">
+      <h1>
+        {{- partial "title.html" .Title -}}
+      </h1>
+      {{.Content}}
+    </div>
+  </div>
+{{ end }}
+
+{{ define "footer" }}
+  {{- partial "footer.html" . -}}
+{{ end }}
