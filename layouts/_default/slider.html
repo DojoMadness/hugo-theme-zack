@@ -10,7 +10,7 @@
       {{- partial "logos.html" . -}}
     </div>
     <div class="col-md-7">
-      {{- partial "slider.html" (.Page.Resources) -}}
+      {{- partial "slider.html" (dict "images" .Page.Resources "width" .Page.Params.slideWidth1x ) -}}
     </div>
   </div>
 {{ end }}

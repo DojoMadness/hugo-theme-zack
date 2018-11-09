@@ -1,7 +1,9 @@
 {{ define "main" }}
   <div id='main' aria-role="main" class="text">
     <div class="col-md-8">
-      <h1>{{.Title}}</h1>
+      <h1>
+        {{- partial "title.html" .Title -}}
+      </h1>
       {{.Content}}
     </div>
   </div>

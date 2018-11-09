@@ -1,10 +1,17 @@
-{{ with . }}
+{{ $image1xSize := .width }}
+{{ $image1xSize := print $image1xSize "x"}}
+{{ $image2xSize := int .width }}
+{{ $image2xSize := mul $image2xSize 2 }}
+{{ $image2xSize := print $image2xSize "x"}}
+
+{{ with .images }}
+
 <div class="carousel carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
     {{ range $index, $image:= . }}
       <div class='carousel-item {{ if eq $index 0 }} active {{ end }}'>
-        {{- $image1x := .Resize "1152x" }}
-        {{- $image2x := .Resize "2304x" }}
+        {{- $image1x := .Resize $image1xSize }}
+        {{- $image2x := .Resize $image2xSize }}
         <img class="d-block"
           src='{{ $image1x.RelPermalink }}'
           srcset='{{ $image2x.RelPermalink }} 2x,
