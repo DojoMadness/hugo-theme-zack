@@ -1,3 +1,7 @@
+{{ define "body_tags" }}
+  class="with-background"
+{{ end }}
+
 {{ define "main" }}
   <div id='main' aria-role="main" class="centered justify-content-center row">
     <div class="col-md-8">
@@ -10,5 +14,6 @@
 {{ end }}
 
 {{ define "footer" }}
+  {{- partial "logos.html" . -}}
   {{- partial "footer.html" . -}}
 {{ end }}

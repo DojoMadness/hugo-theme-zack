@@ -2,6 +2,10 @@
 
 body {
   background-color: #282c32;
+
+  &.with-background {
+    background-image: url('../background@3x.png');
+  }
 }
 
 .container-fluid {
@@ -42,6 +46,7 @@ p strong, small strong {
   border-radius: 28px;
   background-color: rgb(50,119,255);
   font-size: 18px;
+  font-weight: bold;
   margin-top: 25px;
   margin-bottom: 90px;
   border-radius: 8px;
@@ -55,4 +60,14 @@ p strong, small strong {
 
 .centered {
   text-align: center;
+
+  .btn-cta {
+    text-align: center;
+
+    svg {
+      position: relative;
+      top: 3px;
+      margin-right: -10px;
+    }
+  }
 }

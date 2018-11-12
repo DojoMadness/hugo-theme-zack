@@ -1,8 +1,9 @@
 <button id="cta" class="btn btn-lg btn-primary btn-cta">
+  {{ with .Get "icon" }}
+    {{ $icon := print "icons/"  .  ".html" }}
+    {{ partial $icon }}
+  {{ end}}
   {{ .Get "label" }}
-  <svg xmlns="http://www.w3.org/2000/svg" width="29" height="21" viewBox="0 0 29 21">
-    <path fill="#FFF" fill-rule="nonzero" d="M22.522 11.889H2.292a1.556 1.556 0 0 1 0-3.111h20.23L16.05 3.227A1.556 1.556 0 0 1 18.075.866l9.662 8.287c.724.62.724 1.74 0 2.361l-9.662 8.287a1.556 1.556 0 0 1-2.025-2.361l6.472-5.551z"/>
-  </svg>
 </button>
 
 <script>
