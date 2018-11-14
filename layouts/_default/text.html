@@ -1,3 +1,9 @@
+{{ define "body_tags" }}
+{{ with .Page.Params.bodyClass }}
+  class="{{ . }}"
+{{ end }}
+{{ end }}
+
 {{ define "main" }}
   <div id='main' aria-role="main" class="text">
     <div class="col-md-8">
