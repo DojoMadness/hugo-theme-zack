@@ -1,5 +1,8 @@
 .game-logos {
   color: rgb(106,108,111);
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
 }
 
 .game-logos svg{
@@ -8,13 +11,28 @@
 }
 
 .game-logos small {
-  margin-top: 16px;
-  font-size: 12px;
+  margin-top: 32px;
+  font-size: 14px;
   display: block;
+  opacity: 0.35;
+  color: #181f2f;
+
+  a {
+    font-weight: bold;
+    color: #181f2f;
+  }
 }
 
 .game-logos p {
   font-size: 14px;
   display: block;
   color: inherit;
+  opacity: 0.35;
+  color: #181f2f;
+}
+
+.game-logos__img {
+    height: 44px;
+    width: 44px;
+    margin-right: 5px;
 }
