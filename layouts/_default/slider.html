@@ -1,20 +1,24 @@
+{{ define "body_tags" }}
+  class="with-background"
+{{ end }}
+
 {{ define "main" }}
   <div id='main' aria-role="main" class="row index">
-    <div class="col-md-5">
+    <div class="col-md-6">
       <h1>
         {{- partial "title.html" .Title -}}
       </h1>
       <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
       {{.Content}}
 
-      {{- partial "logos.html" . -}}
     </div>
-    <div class="col-md-7">
+    <div class="col-md-6">
       {{- partial "slider.html" (dict "images" .Page.Resources "width" .Page.Params.slideWidth1x ) -}}
     </div>
   </div>
 {{ end }}
 
 {{ define "footer" }}
+  {{- partial "logos.html" . -}}
   {{- partial "footer.html" . -}}
 {{ end }}

@@ -1,4 +1,5 @@
 {{ define "body_tags" }}
+class="with-background"
 {{ with .Page.Params.bodyClass }}
   class="{{ . }}"
 {{ end }}
@@ -6,7 +7,7 @@
 
 {{ define "main" }}
   <div id='main' aria-role="main" class="text">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <h1>
         {{- partial "title.html" .Title -}}
       </h1>
