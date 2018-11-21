@@ -1,12 +1,13 @@
 <div class="game-logos">
-  <p>Deep support for your favourite titles: </p>
+  <p><b>Deep support for your favourite titles: </b></p>
 
   {{ range $logo := .Site.Params.Logos }}
     <img class="game-logos__img" src='/{{$logo}}.png' />
   {{ end  }}
 
   <small>
-    <strong>Zack</strong> is made by <strong>DOJO MADNESS GmbH</strong>
+    <strong>Zack</strong> is made by
+    <a href="https://dojomadness.com" target="_blank">DOJO MADNESS GmbH</a>
     &copy; {{ now.Format "2006" }}. All rights reserved.
     <a href="https://dojomadness.com/contact.html" target="_blank">Imprint</a>
   </small>

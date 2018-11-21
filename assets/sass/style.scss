@@ -11,9 +11,8 @@ body {
 }
 
 .container-fluid {
-  padding-top: 50px;
-  padding-left: 50px;
-  max-width: 1200px;
+  padding: 50px;
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
   height: 100%;
@@ -40,15 +39,13 @@ p strong, small strong {
 
 .carousel {
   position: relative;
-  top: 20px;
-  // float: right;
-  // left: -15px;
-  // margin-right: -30px;
+  top: 1px;
+  right: -50px;
   text-align: center;
 
   img {
     margin: 0 auto;
-    height: 700px;
+    height: 559px;
   }
 }
 
@@ -62,7 +59,7 @@ p strong, small strong {
   font-weight: bold;
   letter-spacing: 0.3px;
   margin-top: 48px;
-  margin-bottom: 90px;
+  margin-bottom: 24px;
   border-radius: 8px;
 }
 
@@ -70,6 +67,17 @@ p strong, small strong {
   position: absolute;
   right: 15px;
   top: 18px;
+}
+
+.haveAccountLink {
+  opacity: 0.9;
+  font-size: 16px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color: #181f2f;
 }
 
 .centered {
