@@ -1,7 +1,7 @@
 .game-logos {
   color: rgb(106,108,111);
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   left: 50px;
 }
 
@@ -35,4 +35,11 @@
     height: 44px;
     width: 44px;
     margin-right: 5px;
+}
+
+
+@media (max-height: 769px) {
+  .game-logos {
+    display: none;
+  }
 }

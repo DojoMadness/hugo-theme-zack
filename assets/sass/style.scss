@@ -93,3 +93,9 @@ p strong, small strong {
     }
   }
 }
+
+@media (max-width: 769px) {
+  .carousel {
+    display: none;
+  }
+}
