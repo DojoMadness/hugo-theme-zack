@@ -7,18 +7,25 @@
 </button>
 
 <script>
-  function ctaDefault() {
-    // Log to amplitude if defined
+  // Log to amplitude if defined
+  function logAmplitude() {
     {{ with .Get "amplitude" }}
     amplitude.getInstance().logEvent({{ . }})
     {{ end }}
+  }
 
+  function ctaDefault() {
+    logAmplitude()
     // Set url
     location.href = {{ .Get "url" }};
   }
 
   document.getElementById("cta").onclick = function() {
     // Log to amplitude if defined
+    {{ with .Get "amplitude" }}
+    amplitude.getInstance().logEvent({{ . }})
+    {{ end }}
+
     {{ with .Get "onclick" }}
       window[{{ . }}]()
     {{ else }}
