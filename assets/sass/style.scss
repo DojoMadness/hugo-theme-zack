@@ -39,13 +39,12 @@ p strong, small strong {
 
 .carousel {
   position: relative;
-  top: 1px;
   right: -50px;
   text-align: center;
 
   img {
     margin: 0 auto;
-    height: 559px;
+    max-width: 100%;
   }
 }
 

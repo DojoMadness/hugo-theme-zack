@@ -1,0 +1,9 @@
+{{ with .Page.Params.amplitudeEvent }}
+<meta name="amplitudeEventName" content="{{ . }}">
+{{ end }}
+{{ with .Page.Params.amplitudeEventProperties }}
+<meta name="amplitudeEventProperties" content="{{ . }}">
+{{ end }}
+{{ with .Page.Params.amplitudeUserProperties }}
+<meta name="amplitudeUserProperties" content="{{ . }}">
+{{ end }}

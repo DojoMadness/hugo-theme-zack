@@ -47,10 +47,38 @@ amplitude.getInstance().init({{ . }}, null, {
         instance.setDeviceId(instance.options.deviceId)
     }
 );
-{{ end }}
 
-{{ with .Page.Params.amplitudeEvent }}
-amplitude.getInstance().logEvent({{ . }})
+var readAmplitudeString = function(propertyName) {
+  var element = document.querySelector('meta[name="' + propertyName + '"]')
+  if (element) {
+    return element.getAttribute('content')
+  }
+}
+
+window.addEventListener("load", function(event) {
+  var amplitudeEventName = readAmplitudeString('amplitudeEventName')
+  var amplitudeEventProperties = readAmplitudeString('amplitudeEventProperties')
+  var amplitudeUserProperties = readAmplitudeString('amplitudeUserProperties')
+
+  if (amplitudeUserProperties) {
+    var identify = new amplitude.Identify().append(...amplitudeUserProperties.split(":"))
+    amplitude.identify(identify)
+  }
+
+  if (amplitudeEventName) {
+    if(amplitudeEventProperties) {
+      var properties = {};
+      properties[amplitudeEventProperties.split(":")[0]] = amplitudeEventProperties.split(":")[1]
+      properties
+
+      amplitude.getInstance().logEvent(amplitudeEventName, properties)
+    } else {
+      amplitude.getInstance().logEvent(amplitudeEventName)
+    }
+  }
+
+})
+
 {{ end }}
 
 </script>
