@@ -1,35 +1,25 @@
-<button id="cta" class="btn btn-lg btn-primary btn-cta">
+<button id="cta" class="btn btn-lg btn-primary btn-cta"
+{{ with .Get "amplitude" }}
+  data-amplitude-event="{{ . }}"
+{{ end }}
+
+{{ with .Get "ga" }}
+  data-ga-event="{{ . }}"
+{{ end }}
+
+{{ with .Get "url" }}
+  data-redirect-url="{{ . }}"
+{{ end }}
+
+{{ with .Get "onclick" }}
+  onClick="ctaOnClick(this, {{ . }})"
+{{ else }}
+  onClick="ctaOnClick(this)"
+{{ end }}
+>
   {{ with .Get "icon" }}
     {{ $icon := print "icons/"  .  ".html" }}
     {{ partial $icon }}
   {{ end}}
   {{ .Get "label" }}
 </button>
-
-<script>
-  // Log to amplitude if defined
-  function logAmplitude() {
-    {{ with .Get "amplitude" }}
-    amplitude.getInstance().logEvent({{ . }})
-    {{ end }}
-  }
-
-  function ctaDefault() {
-    logAmplitude()
-    // Set url
-    location.href = {{ .Get "url" }};
-  }
-
-  document.getElementById("cta").onclick = function() {
-    // Log to amplitude if defined
-    {{ with .Get "amplitude" }}
-    amplitude.getInstance().logEvent({{ . }})
-    {{ end }}
-
-    {{ with .Get "onclick" }}
-      window[{{ . }}]()
-    {{ else }}
-      ctaDefault()
-    {{ end }}
-  }
-</script>

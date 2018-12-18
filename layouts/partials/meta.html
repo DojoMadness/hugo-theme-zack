@@ -7,3 +7,41 @@
 {{ with .Page.Params.amplitudeUserProperties }}
 <meta name="amplitudeUserProperties" content="{{ . }}">
 {{ end }}
+
+<script>
+  function logAmplitude(button) {
+    var amplitudeEventName = button.getAttribute('data-amplitude-event')
+    if (amplitude && amplitudeEventName) {
+      amplitude.getInstance().logEvent(amplitudeEventName)
+    }
+  }
+
+  function logGoogleAnalytics(button) {
+    var gaEventData = button.getAttribute('data-ga-event')
+    if (gaEventData) {
+      var gaEventCategory = gaEventData.split(':')[0]
+      var gaEventName= gaEventData.split(':')[1]
+
+      if (ga && gaEventName) {
+        ga('send', 'event', gaEventCategory, gaEventName);
+      }
+    }
+  }
+
+  function redirectToUrl(button) {
+    var redirectUrl = button.getAttribute('data-redirect-url')
+    if (redirectUrl) {
+      location.href = redirectUrl
+    }
+  }
+
+  function ctaOnClick(button, callback) {
+    callback = callback || "redirectToUrl"
+
+    logAmplitude(button)
+    logGoogleAnalytics(button)
+
+    window[callback](button)
+  }
+
+</script>

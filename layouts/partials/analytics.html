@@ -6,10 +6,16 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('set', 'anonymizeIp', true)
 ga('create', {{ .Site.GoogleAnalytics }}, 'auto');
+ga('send', 'pageview');
+
 {{ with .Site.Params.GoogleTagManager }}
 ga('require', {{ . }} );
+(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{ {{ . }}:true});
 {{ end }}
-ga('send', 'pageview');
 
 {{ with .Site.Params.AmplitudeApiKey }}
 
@@ -48,22 +54,9 @@ amplitude.getInstance().init({{ . }}, null, {
     }
 );
 
-var readAmplitudeString = function(propertyName) {
-  var element = document.querySelector('meta[name="' + propertyName + '"]')
-  if (element) {
-    return element.getAttribute('content')
-  }
-}
-
 window.addEventListener("load", function(event) {
   var amplitudeEventName = readAmplitudeString('amplitudeEventName')
   var amplitudeEventProperties = readAmplitudeString('amplitudeEventProperties')
-  var amplitudeUserProperties = readAmplitudeString('amplitudeUserProperties')
-
-  if (amplitudeUserProperties) {
-    var identify = new amplitude.Identify().append(...amplitudeUserProperties.split(":"))
-    amplitude.identify(identify)
-  }
 
   if (amplitudeEventName) {
     if(amplitudeEventProperties) {
@@ -78,6 +71,34 @@ window.addEventListener("load", function(event) {
   }
 
 })
+
+var readAmplitudeString = function(propertyName) {
+  var element = document.querySelector('meta[name="' + propertyName + '"]')
+  if (element) {
+    return element.getAttribute('content')
+  }
+}
+
+// Code to call after experiment is run
+function delayedInitialization() {
+  var amplitudeUserProperties = readAmplitudeString('amplitudeUserProperties')
+
+  if (amplitudeUserProperties) {
+    console.log("Sending: " + amplitudeUserProperties)
+    var identify = new amplitude.Identify().append(...amplitudeUserProperties.split(":"))
+    amplitude.identify(identify)
+  }
+}
+
+var hideEnd = dataLayer.hide.end;
+if (hideEnd) {
+  dataLayer.hide.end = function() {
+    delayedInitialization();
+    hideEnd();
+  }
+} else {
+  delayedInitialization();
+}
 
 {{ end }}
 

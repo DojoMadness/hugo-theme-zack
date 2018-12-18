@@ -13,7 +13,12 @@
 
     </div>
     <div class="col-md-6">
-      {{- partial "slider.html" (dict "images" .Page.Resources "width" .Page.Params.slideWidth1x ) -}}
+      {{ $slider := print "/sliders/" .Page.Params.slider }}
+      {{ with .Site.GetPage $slider }}
+        {{- partial "slider.html" (dict "images" .Resources "width" .Params.slideWidth1x ) -}}
+      {{ else }}
+        {{ errorf "Cannot find slider: %q" $slider }}
+      {{ end }}
     </div>
   </div>
 {{ end }}
