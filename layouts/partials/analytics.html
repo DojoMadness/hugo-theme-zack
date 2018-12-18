@@ -85,7 +85,7 @@ function delayedInitialization() {
 
   if (amplitudeUserProperties) {
     console.log("Sending: " + amplitudeUserProperties)
-    var identify = new amplitude.Identify().append(...amplitudeUserProperties.split(":"))
+    var identify = new amplitude.Identify().set(...amplitudeUserProperties.split(":"))
     amplitude.identify(identify)
   }
 }
