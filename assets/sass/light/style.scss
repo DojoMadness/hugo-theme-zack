@@ -1,13 +1,18 @@
-@import 'bootstrap';
+@import '../bootstrap';
+$highlight: #007bff;
 
 body {
   background-color: #fff;
 
   &.with-background {
-    background-image: url('../background@3x.png');
+    background-image: url('../../background@3x.png');
     background-repeat: no-repeat;
     background-size: contain;
   }
+}
+
+#logo-zack {
+  fill: $highlight;
 }
 
 .container-fluid {
@@ -66,6 +71,7 @@ p strong, small strong {
   position: absolute;
   right: 15px;
   top: 18px;
+  fill: white;
 }
 
 .haveAccountLink {

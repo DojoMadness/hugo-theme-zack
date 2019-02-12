@@ -1,0 +1,5 @@
+{{ if isset .Params 0 }}
+{{ $name := .Get 0 }}
+{{ $original := resources.Get (printf "img/%s" $name) }}
+{{- partial "img3x.html" $original }}
+{{ end }}

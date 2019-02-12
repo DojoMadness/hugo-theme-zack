@@ -1,0 +1,13 @@
+{{ $original := . }}
+
+{{ $width3x := int $original.Width }}
+{{ $width1x := div $width3x 3 }}
+{{ $width2x := mul $width1x 2 }}
+
+{{ $width1x := print $width1x "x"}}
+{{ $width2x := print $width2x "x"}}
+
+{{- $image1x := $original.Resize $width1x }}
+{{- $image2x := $original.Resize $width2x }}
+
+<img class="img-fluid" source='{{ $image1x.Permalink }}' srcset='{{ $image2x.Permalink }} 2x,{{ $original.Permalink }} 3x'>

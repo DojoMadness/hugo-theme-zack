@@ -1,0 +1,13 @@
+<div class="centered-image-row row">
+  <div class="half-column col-sm-6">
+    {{ .Inner }}
+  </div>
+
+  {{ if isset .Params 0 }}
+  <div class="half-column col-sm-6">
+    {{ $name := .Get 0 }}
+    {{ $original := .Page.Resources.GetMatch (printf "*%s*" (.Get 0))}}
+    {{- partial "img3x.html" $original }}
+  </div>
+  {{ end }}
+</div>

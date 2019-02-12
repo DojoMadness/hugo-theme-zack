@@ -8,12 +8,12 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,900i" rel="stylesheet">
 
   <!-- CSS -->
-  {{ $main := resources.Get "sass/main.scss" | resources.ToCSS | minify | fingerprint}}
-  <link rel="stylesheet" href="{{ $main.Permalink }}">
-
-  {{ if (fileExists "sass/custom.css") }}
-    {{ $custom := resources.Get "sass/custom.scss" | resources.ToCSS | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $custom.Permalink }}">
+  {{ with .Page.Params.css }}
+    {{ $main := resources.Get . | resources.ToCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $main.Permalink }}">
+  {{ else }}
+    {{ $main := resources.Get "sass/light/main.scss" | resources.ToCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $main.Permalink }}">
   {{ end }}
 
   <!-- Favicon -->
