@@ -1,9 +1,22 @@
 @import '../bootstrap';
 $background: #090a14;
 $highlight: #3377ff;
-$text: rgba(255,255,255,0.5);
-
+$text: darken(white, 50%);
+$text-claim: darken(white, 50%);
 $vert: 26px;
+
+// Timea font-size
+$font-size-body: 14px;
+$font-size-h1: 36px;
+$font-size-h2: 26px;
+$font-size-claim: 20px;
+
+// Markus Wulff changes
+$font-size-body: 16px;
+$font-size-h1: 50px;
+$font-size-h2: 28px;
+$font-size-claim: 20px;
+$text-claim: darken(white, 30%);
 
 body {
   background-color: $background;
@@ -28,14 +41,14 @@ body {
   }
 
   h1 {
-    font-size: 36px;
+    font-size: $font-size-h1;
     font-weight: bold;
     margin-top: $vert * 1.5;
     margin-bottom: $vert * 1.5;
   }
 
   h2  {
-    font-size: 26px;
+    font-size: $font-size-h2;
     margin-bottom: $vert;
   }
 
@@ -47,9 +60,14 @@ body {
   }
 
   p {
-    color: rgba(255,255,255,0.5);
+    color: $text;
     text-align: center;
-    font-size: 14px;
+    font-size: $font-size-body;
+  }
+
+  h1 + p {
+    font-size: $font-size-claim;
+    color: $text-claim;
   }
 
   p em {
@@ -110,6 +128,7 @@ body {
     }
 
     p {
+      font-size: $font-size-body;
       text-align: left;
     }
   }
