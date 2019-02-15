@@ -10,6 +10,7 @@ $font-size-body: 14px;
 $font-size-h1: 36px;
 $font-size-h2: 26px;
 $font-size-claim: 20px;
+$cta-width: 200px;
 
 // Markus Wulff changes
 $font-size-body: 16px;
@@ -17,6 +18,8 @@ $font-size-h1: 50px;
 $font-size-h2: 28px;
 $font-size-claim: 20px;
 $text-claim: darken(white, 30%);
+$cta-width: 260px;
+
 
 body {
   background-color: $background;
@@ -166,23 +169,27 @@ body {
 
   .btn-cta {
     position: relative;
-    width: 206px;
-    padding-left: 20px;
-    text-align: right;
-    height: 40px;
+    width: $cta-width;
+    height: $cta-width / 5;
+    border-radius: $cta-width / 25;
+    font-size: $cta-width / 15;
+
     background-color: $highlight;
-    font-size: 13px;
     font-weight: bold;
     letter-spacing: 0.1px;
+    text-align: right;
+    text-indent: $cta-width / 10;
+
     margin-top: $vert;
     margin-bottom: $vert;
-    border-radius: 8px;
 
     svg {
       position: absolute;
-      left: 10px;
-      top: 9px;
+      left: $cta-width / 20;
+      top: $cta-width / 22;
       fill: white;
+      height: $cta-width / 10;
+      width: $cta-width / 10;
     }
   }
 
