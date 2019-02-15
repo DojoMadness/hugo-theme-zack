@@ -25,6 +25,7 @@ body {
   background-color: $background;
   background-image: url('../../games_bg@3x.png');
   background-size: 436px 431px;
+  overflow-x: hidden;
 }
 
 #logo-zack {
@@ -195,8 +196,7 @@ body {
 
   .highlight-wide {
     background-color: $highlight;
-
-    width: 100vw;
+    width: 99.9vw;
     position: relative;
     left: 50%;
     margin-left: -50vw;
