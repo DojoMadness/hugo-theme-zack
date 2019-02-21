@@ -17,9 +17,10 @@ $font-size-body: 16px;
 $font-size-h1: 50px;
 $font-size-h2: 28px;
 $font-size-claim: 20px;
+$font-size-footer: 13px;
 $text-claim: darken(white, 30%);
 $cta-width: 260px;
-
+$logo-width: 90px;
 
 body {
   background-color: $background;
@@ -29,10 +30,10 @@ body {
 }
 
 #logo-zack {
-  width: 83px;
-  height: 37px;
-  margin-left: 21px;
-  margin-top: 36px;
+  width: $logo-width;
+  height: $logo-width * (4/9);
+  margin-left: 1.5*$vert;
+  margin-top:  1.5*$vert;
   fill: $highlight;
 }
 
@@ -199,7 +200,7 @@ body {
     width: 99.9vw;
     position: relative;
     left: 50%;
-    margin-left: -50vw;
+    margin-left: -49.9vw;
     margin-bottom: $vert;
     margin-top: 2*$vert;
     padding-top: $vert / 2;
@@ -228,6 +229,7 @@ body {
 }
 
 footer {
+  font-size: $font-size-footer;
   text-align: center;
   color: $text;
   margin: $vert;

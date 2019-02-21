@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
-  <div id='main' aria-role="main">
+  <div id='main' aria-role="main" {{ with .Page.Params.MainClass  }} class="{{ . }}"{{ end }}>
     <div class="container">
       <h1>
         {{- partial "title.html" .Title -}}
