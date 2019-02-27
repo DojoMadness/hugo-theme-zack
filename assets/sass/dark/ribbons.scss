@@ -1,19 +1,34 @@
+// For large screens
+$large-width: 1200px;
+$grow-factor: 1.3;
+
 /* The ribbons */
+$ribbon-width: 120px;
 
 .corner-ribbon{
-  width: 120px;
+  width: $ribbon-width;
+  line-height: $ribbon-width / 6;
+  left:  -$ribbon-width / 3;
+  top: $ribbon-width / 12;
+  font-size: $ribbon-width / 12;
   position: absolute;
-  top: 10px;
-  left: -40px;
   text-align: center;
-  line-height: 20px;
-  font-size: 10px;
   font-weight: 500;
   color: #fff;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   background-color: rgb(50,119,255);
   text-transform: uppercase;
+
+  @media (min-width: $large-width) {
+    $ribbon-width: $ribbon-width * $grow-factor;
+    width: $ribbon-width;
+    line-height: $ribbon-width / 6;
+    left:  -$ribbon-width / 3;
+    font-size: $ribbon-width / 12;
+    top: $ribbon-width / 12;
+  }
+
 }
 
 .corner-ribbon.shadow{
