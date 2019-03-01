@@ -16,7 +16,7 @@ $cta-width: 200px;
 $font-size-body: 16px;
 $font-size-h1: 42px;
 $font-size-h2: 28px;
-$font-size-claim: 19px;
+$font-size-claim: 18px;
 $font-size-footer: 13px;
 $text-claim: darken(white, 30%);
 $cta-width: 260px;
@@ -50,6 +50,7 @@ body {
 #main {
 
   .container {
+    margin-top: -$vert;
     max-width: 720px;
     @media (min-width: $large-width) {
       max-width: 720px * $grow-factor;
@@ -61,12 +62,12 @@ body {
   h1 {
     font-size: $font-size-h1;
     font-weight: bold;
-    margin-top: $vert * 1.5;
-    margin-bottom: $vert * 1.5;
+    margin-top: $vert * 1.25;
+    margin-bottom: $vert * 1.25;
     @media (min-width: $large-width) {
       font-size: $font-size-h1 * $grow-factor;
-      margin-top: $vert * 1.5 * $grow-factor;
-      margin-bottom: $vert * 1.5 * $grow-factor;
+      margin-top: $vert * 1.25 * $grow-factor;
+      margin-bottom: $vert * 1.25 * $grow-factor;
     }
   }
 
@@ -189,20 +190,6 @@ body {
       margin-left: -75px;
       margin-right: -75px;
     }
-
-    .row-linethrough {
-      position: relative;
-
-      &:before {
-        content: "";
-        width: 80%;
-        position: absolute;
-        height: 1px;
-        top: 33%;
-        left: 10%;
-        border-bottom: 1px solid rgb(11,24,49);
-      }
-    }
   }
 
   .quarter-column {
@@ -221,13 +208,6 @@ body {
     border-radius: $cta-width / 25;
     font-size: $cta-width / 15;
 
-    @media (min-width: $large-width) {
-      width: $cta-width * $grow-factor;
-      height: $cta-width / 5 * $grow-factor;
-      border-radius: $cta-width / 25 * $grow-factor;
-      font-size: $cta-width / 15 * $grow-factor;
-    }
-
     background-color: $highlight;
     font-weight: bold;
     letter-spacing: 0.1px;
@@ -244,13 +224,6 @@ body {
       top: $cta-width / 22;
       height: $cta-width / 10;
       width: $cta-width / 10;
-
-      @media (min-width: $large-width) {
-        left: $cta-width / 20 * $grow-factor;
-        top: $cta-width / 22 * $grow-factor;
-        height: $cta-width / 10 * $grow-factor;
-        width: $cta-width / 10 * $grow-factor;
-      }
     }
   }
 
