@@ -1,5 +1,11 @@
 {{ if isset .Params 0 }}
-{{ $name := .Get 0 }}
-{{ $original := .Page.Resources.GetMatch (printf "*%s*" $name)}}
-{{- partial "img3x.html" $original }}
+  {{ $name := .Get 0 }}
+
+  {{ with .Page.Resources.GetMatch (printf "*%s*" $name) }}
+    {{- partial "img3x.html" . }}
+      {{ else }}
+    {{ with resources.Get (printf "img/%s" $name) }}
+      {{- partial "img3x.html" . }}
+    {{ end }}
+  {{ end }}
 {{ end }}

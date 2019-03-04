@@ -1,0 +1,38 @@
+{{ with .Page.Params.metaTitle }}
+  <title> {{ . }} </title>
+{{ else }}
+  <title> Welcome to Zack - Beta </title>
+{{ end }}
+{{ with .Page.Params.metaDescription }}
+  <meta name="description" content="{{ . }}"/>
+{{ end }}
+{{ with .Page.Params.canonicalUrl }}
+  <link rel="canonical" href="{{ absURL . }}"/>
+{{ end }}
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+
+{{ with .Page.Params.ogTitle }}
+  <meta property="og:title" content="{{ . }}">
+{{ else }}
+  {{ with .Page.Params.metaTitle }}
+    <meta property="og:title" content="{{ . }}">
+  {{ end }}
+{{ end }}
+
+{{ with .Page.Params.ogDescription }}
+  <meta property="og:description" content="{{ . }}">
+{{ else }}
+  {{ with .Page.Params.metaDescription }}
+    <meta property="og:description" content="{{ . }}">
+  {{ end }}
+{{ end }}
+
+{{ with .Site.Params.ogImage }}
+  {{ with resources.Get (printf "img/%s" .) }}
+    {{ $image := . | resources.Fingerprint "sha512" }}
+    <meta property="og:image" content="{{ $image.Permalink }}">
+  {{ end }}
+{{ end }}
+

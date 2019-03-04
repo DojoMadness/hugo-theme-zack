@@ -6,8 +6,13 @@
   {{ if isset .Params 0 }}
   <div class="half-column col-sm-6">
     {{ $name := .Get 0 }}
-    {{ $original := .Page.Resources.GetMatch (printf "*%s*" (.Get 0))}}
-    {{- partial "img3x.html" $original }}
+    {{ with .Page.Resources.GetMatch (printf "*%s*" $name) }}
+      {{- partial "img3x.html" . }}
+    {{ else }}
+      {{ with resources.Get (printf "img/%s" $name) }}
+        {{- partial "img3x.html" . }}
+      {{ end }}
+    {{ end }}
   </div>
   {{ end }}
 </div>
