@@ -59,7 +59,7 @@ body {
     color: white;
   }
 
-  h1 {
+  h1, .h1 {
     font-size: $font-size-h1;
     font-weight: bold;
     margin-top: $vert * 1.25;
@@ -71,7 +71,7 @@ body {
     }
   }
 
-  h2  {
+  h2, .h2  {
     font-size: $font-size-h2;
     margin-bottom: $vert;
     @media (min-width: $large-width) {
