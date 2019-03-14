@@ -4,6 +4,10 @@ p, h1, h2, h3, h4, li {
   text-align: left !important;
 }
 
+strong {
+  color: white;
+}
+
 ol li {
   list-style: none;
   padding-left: 20px;
@@ -38,12 +42,30 @@ h3:before {
   counter-increment: h3counter;
 }
 
-ol {
+// Lists
+h2 + ol {
+  margin-left: 20px;
+  counter-reset: licounter;
+}
+
+h2 + ol li:before {
+  content: counter(h2counter) "." counter(licounter) ".\0000a0\0000a0";
+  counter-increment: licounter;
+  float: left;
+  width: 45px;
+  margin-left: -60px;
+  font-size: 18px;
+  margin-top: 1px;
+  font-weight: bold;
+}
+
+
+h3 + ol, h3 + p + ol {
   margin-left: 40px;
   counter-reset: licounter;
 }
 
-ol li:before {
+h3 + ol li:before,  h3 + p + ol li:before{
   content: counter(h2counter) "." counter(h3counter) "." counter(licounter) ".\0000a0\0000a0";
   counter-increment: licounter;
   float: left;
